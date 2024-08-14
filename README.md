@@ -11,10 +11,12 @@ docker run -it --rm -v /path/to/audio_files:/app thomasvvugt/whisperx:cpu record
 ```
 
 ## Nvidia CUDA 11.8
-Note: You require a hardware graphics card (GPU), but this is much more performant.
+Note: Dedicated hardware graphics card (GPU) are much more performant, especially for diarization.
+
+You can also keep track of your cache across runs (e.g. to prevent multiple downloads from HF), by mounting `/root/.cache`.
 
 ```
-docker run -it --rm --gpus all -v /path/to/audio_files:/app thomasvvugt/whisperx:cuda118 recording.mp3 --batch_size 8 --diarize --hf_token YOUR_HUGGINGFACE_READ_TOKEN
+docker run -it --rm --gpus all -v /path/to/audio_files:/app -v /path/to/cache:/root/.cache thomasvvugt/whisperx:cuda118 recording.mp3 --batch_size 8 --diarize --hf_token YOUR_HUGGINGFACE_READ_TOKEN
 ```
 
 # Building the image
