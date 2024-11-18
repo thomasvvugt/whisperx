@@ -23,6 +23,6 @@ docker run -it --rm --gpus all -v /path/to/audio_files:/app -v /path/to/cache:/r
 You can either use the pre-built images from Docker Hub, or build the images yourself.
 
 ```
-docker build -f Dockerfile.cpu -t whisperx:cpu
-docker build -f Dockerfile.cuda118 -t whisperx:cuda118
+docker build -f Dockerfile.cpu -t whisperx:cpu .
+docker build -f Dockerfile.cuda118 -t whisperx:cuda118 .
 ```
